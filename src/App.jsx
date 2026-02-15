@@ -3,8 +3,10 @@ import React, { useState } from 'react'
 const App = () => {
   const [num, setNum] = useState(12);
   const [type, setType] = useState("linear")
-  const getHexColorcode =()=>{
-alert("good its working")
+  const getHexColorcode = () => {
+    const rgb = 255 * 255 * 255;
+    const random = Math.random() * rgb
+    console.log(random)
   }
   return (
     <div className='min-h-screen bg-gray-600'>
