@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 const App = () => {
   const [num, setNum] = useState(12);
   const [type, setType] = useState("linear")
+  const getHexColorcode =()=>{
+alert("good its working")
+  }
   return (
     <div className='min-h-screen bg-gray-600'>
       <div className='w-9/12 mx-auto'>
@@ -17,6 +20,7 @@ const App = () => {
               <option value="radial">Radial</option>
             </select>
           </div>
+          <button onClick={getHexColorcode}>test</button>
         </div>
 
       </div>
