@@ -6,7 +6,8 @@ const App = () => {
   const getHexColorcode = () => {
     const rgb = 255 * 255 * 255;
     const random = Math.random() * rgb
-    console.log(random)
+    const int = Math.floor(random)
+    console.log(int)
   }
   return (
     <div className='min-h-screen bg-gray-600'>
