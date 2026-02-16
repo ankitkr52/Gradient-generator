@@ -7,7 +7,8 @@ const App = () => {
     const rgb = 255 * 255 * 255;
     const random = Math.random() * rgb
     const int = Math.floor(random)
-    console.log(int)
+   const hexCode=int.toString(16)
+   hexCode.padStart(10,"a")
   }
   return (
     <div className='min-h-screen bg-gray-600'>
