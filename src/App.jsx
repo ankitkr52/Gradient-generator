@@ -1,18 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const App = () => {
+  const [gradients, setGradients] = useState([])
   const [num, setNum] = useState(12);
   const [type, setType] = useState("linear")
   const getHexColorcode = () => {
     const rgb = 255 * 255 * 255;
     const random = Math.random() * rgb
     const int = Math.floor(random)
-   const hexCode=int.toString(16)
-   hexCode.padStart(10,"a")
+    const hexCode = int.toString(16)
+    const colorhex = hexCode.padEnd(6, "0")
+    return `#${colorhex}`
   }
+  const generategradients = () => {
+    for (let i = 0; i < num; i++) {
+    console.log("hello")
+
+    }
+
+  }
+  useEffect(() => {
+    generategradients()
+  }, [num])
   return (
     <div className='min-h-screen bg-gray-600'>
-      <div className='w-9/12 mx-auto'>
+      <div className='w-9/12 mx-auto space-y-9'>
         <div className='flex justify-between'>
           <h1 className='text-3xl font-bold'>
             🎨 Gradient generator
@@ -25,6 +37,21 @@ const App = () => {
             </select>
           </div>
           <button onClick={getHexColorcode}>test</button>
+        </div>
+        <div className='grid grid-cols-4 gap-4'>
+          {
+            gradients.map((items, index) => (
+
+              <div className='h-[180px] rounded-xl relative'
+                style={{
+                  background: getHexColorcode()
+                }}>
+                <button className='bg-black/55 hover:bg-black text-white rounded absolute bottom-3 right-3 text-xs p-1 py-1 px-2 '>Copy</button>
+
+              </div>
+            ))
+          }
+
         </div>
 
       </div>
