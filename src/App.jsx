@@ -13,10 +13,18 @@ const App = () => {
     return `#${colorhex}`
   }
   const generategradients = () => {
+    const colors = []
     for (let i = 0; i < num; i++) {
-    console.log("hello")
+      const color1 = getHexColorcode()
+      const color2 = getHexColorcode()
+      const degree = Math.floor(Math.random() * 360)
+      const degreeString = `${degree}deg`
+      colors.push({
+        gradient: `linear-gradient(${degreeString},${color1},${color2})`
+      })
 
     }
+    setGradients(colors)
 
   }
   useEffect(() => {
@@ -42,9 +50,9 @@ const App = () => {
           {
             gradients.map((items, index) => (
 
-              <div className='h-[180px] rounded-xl relative'
+              <div key={index} className='h-[180px] rounded-xl relative'
                 style={{
-                  background: getHexColorcode()
+                  background: items.gradient
                 }}>
                 <button className='bg-black/55 hover:bg-black text-white rounded absolute bottom-3 right-3 text-xs p-1 py-1 px-2 '>Copy</button>
 
