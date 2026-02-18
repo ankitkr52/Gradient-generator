@@ -41,7 +41,7 @@ const App = () => {
   }
   const onCopy = (css) => {
     navigator.clipboard.writeText(css)
-    toast.success("gradient code copied", { position: 'top-center' })
+    toast.success("gradient code copied", { position: 'top-right' })
   }
   useEffect(() => {
     generategradients()
@@ -49,7 +49,11 @@ const App = () => {
   return (
     <div className='min-h-screen bg-gray-600'>
       <div className='w-9/12 mx-auto space-y-9'>
-        <div className='flex justify-between'>
+        <div className='flex justify-between p-6 rounded-2xl'
+        style={{
+          // background:'linear-gradient(351deg,#d848da,#f414ab)'
+          background:getHexColorcode()
+        }}>
           <h1 className='text-3xl font-bold'>
             🎨 Gradient generator
           </h1>
