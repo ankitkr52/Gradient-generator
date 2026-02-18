@@ -1,4 +1,6 @@
+import { Linter } from 'eslint';
 import React, { useEffect, useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify';
 
 const App = () => {
   const [gradients, setGradients] = useState([])
@@ -19,17 +21,31 @@ const App = () => {
       const color2 = getHexColorcode()
       const degree = Math.floor(Math.random() * 360)
       const degreeString = `${degree}deg`
-      colors.push({
-        gradient: `linear-gradient(${degreeString},${color1},${color2})`
-      })
+      if (type === "linear") {
+        colors.push({
+          gradient: `linear-gradient(${degreeString},${color1},${color2})`,
+          css: `background:'linear-gradient(${degreeString},${color1},${color2})'`
+        })
+      }
+      else{
+          colors.push({
+          gradient: `radial-gradient(${degreeString},${color1},${color2})`,
+          css: `background:'radial-gradient(${degreeString},${color1},${color2})'`
+        })
+      }
+
 
     }
     setGradients(colors)
 
   }
+  const onCopy = (css) => {
+    navigator.clipboard.writeText(css)
+    toast.success("gradient code copied", { position: 'top-center' })
+  }
   useEffect(() => {
     generategradients()
-  }, [num])
+  }, [num,radial])
   return (
     <div className='min-h-screen bg-gray-600'>
       <div className='w-9/12 mx-auto space-y-9'>
@@ -44,7 +60,7 @@ const App = () => {
               <option value="radial">Radial</option>
             </select>
           </div>
-          <button onClick={getHexColorcode}>test</button>
+          {/* <button onClick={getHexColorcode}>test</button> */}
         </div>
         <div className='grid grid-cols-4 gap-4'>
           {
@@ -54,7 +70,7 @@ const App = () => {
                 style={{
                   background: items.gradient
                 }}>
-                <button className='bg-black/55 hover:bg-black text-white rounded absolute bottom-3 right-3 text-xs p-1 py-1 px-2 '>Copy</button>
+                <button onClick={() => onCopy(items.css)} className='bg-black/55 hover:bg-black text-white rounded absolute bottom-3 right-3 text-xs p-1 py-1 px-2 '>Copy</button>
 
               </div>
             ))
@@ -63,7 +79,7 @@ const App = () => {
         </div>
 
       </div>
-
+      <ToastContainer />
     </div>
   )
 }
