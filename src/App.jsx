@@ -1,4 +1,4 @@
-import { Linter } from 'eslint';
+
 import React, { useEffect, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -7,7 +7,7 @@ const App = () => {
   const [num, setNum] = useState(12);
   const [type, setType] = useState("linear")
   const getHexColorcode = () => {
-    const rgb = 255 * 255 * 255;
+    const rgb = 256 * 256 * 256;
     const random = Math.random() * rgb
     const int = Math.floor(random)
     const hexCode = int.toString(16)
@@ -27,10 +27,10 @@ const App = () => {
           css: `background:'linear-gradient(${degreeString},${color1},${color2})'`
         })
       }
-      else{
-          colors.push({
-          gradient: `radial-gradient(${degreeString},${color1},${color2})`,
-          css: `background:'radial-gradient(${degreeString},${color1},${color2})'`
+      else {
+        colors.push({
+          gradient: `radial-gradient(circle,${color1},${color2})`,
+          css: `background:'radial-gradient(circle,${color1},${color2})'`
         })
       }
 
@@ -45,7 +45,7 @@ const App = () => {
   }
   useEffect(() => {
     generategradients()
-  }, [num,radial])
+  }, [num, type])
   return (
     <div className='min-h-screen bg-gray-600'>
       <div className='w-9/12 mx-auto space-y-9'>
@@ -59,6 +59,7 @@ const App = () => {
               <option value="linear">linear</option>
               <option value="radial">Radial</option>
             </select>
+            <button className='px-16 py-2 bg-rose-500 ml-2 rounded-2xl font-medium text-white' onClick={generategradients}>Generate</button>
           </div>
           {/* <button onClick={getHexColorcode}>test</button> */}
         </div>
