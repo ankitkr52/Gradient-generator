@@ -51,8 +51,8 @@ const App = () => {
       <div className='w-9/12 mx-auto space-y-9'>
         <div className='flex justify-between p-6 rounded-2xl'
         style={{
-          // background:'linear-gradient(351deg,#d848da,#f414ab)'
-          background:getHexColorcode()
+          background:'linear-gradient(351deg,#d848da,#f414ab)'
+          // background:getHexColorcode()
         }}>
           <h1 className='text-3xl font-bold'>
             🎨 Gradient generator
@@ -66,7 +66,7 @@ const App = () => {
             <button className='px-16 py-2 bg-blue-600  ml-2 rounded-2xl font-medium text-white' onClick={generategradients}>Generate</button>
           </div>
           {/* <button onClick={getHexColorcode}>test</button> */}
-          {/* background:'linear-gradient(78deg,#26dca3,#4e18b4)' */}
+         
         </div>
         <div className='grid grid-cols-4 gap-4'>
           {
