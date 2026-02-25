@@ -63,9 +63,10 @@ const App = () => {
               <option value="linear">linear</option>
               <option value="radial">Radial</option>
             </select>
-            <button className='px-16 py-2 bg-rose-500 ml-2 rounded-2xl font-medium text-white' onClick={generategradients}>Generate</button>
+            <button className='px-16 py-2 bg-blue-600  ml-2 rounded-2xl font-medium text-white' onClick={generategradients}>Generate</button>
           </div>
           {/* <button onClick={getHexColorcode}>test</button> */}
+          {/* background:'linear-gradient(78deg,#26dca3,#4e18b4)' */}
         </div>
         <div className='grid grid-cols-4 gap-4'>
           {
