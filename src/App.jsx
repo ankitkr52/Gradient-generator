@@ -51,8 +51,8 @@ const App = () => {
       <div className='w-9/12 mx-auto space-y-9'>
         <div className='flex justify-between p-6 rounded-2xl'
         style={{
-          background:'linear-gradient(351deg,#d848da,#f414ab)'
-          // background:getHexColorcode()
+          // background:'linear-gradient(351deg,#d848da,#f414ab)'
+          background:getHexColorcode()
         }}>
           <h1 className='text-3xl font-bold'>
             🎨 Gradient generator
