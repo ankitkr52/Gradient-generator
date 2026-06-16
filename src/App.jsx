@@ -55,7 +55,7 @@ const App = () => {
           background:getHexColorcode()
         }}>
           <h1 className='text-3xl font-bold'>
-            🎨 Gradient generator
+            🎨Gradient generator
           </h1>
           <div >
             <input value={num} type="text" placeholder='12' onChange={(e) => setNum(Number(e.target.value))} className='border bg-gray-200 rounded-lg w-[200px] p-2 mr-2' />
